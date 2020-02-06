@@ -28,7 +28,7 @@ sub $t0, $t0, $t9
 	
 skip_rick:	
 addi $v0, $zero, 1
-move $a0, $t0		#addu $a0, $zero, $t0
+addu $a0, $zero, $t0
 syscall
 addi $v0, $zero, 4
 la $a0, units_newline
