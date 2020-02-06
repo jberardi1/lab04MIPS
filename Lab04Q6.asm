@@ -7,10 +7,10 @@ units_newline: .asciiz " units.\n"
 .text
 
 main:
-addi $t9, $zero, 2	 #b=2
+addi $t9, $zero, 0x2	 #b=2
 	#need to make 2 a hexidecimial number
-addi $t1, $zero, 0	# x=0
-addi $t2, $zero, 5
+addi $t1, $zero, 0x0	# x=0
+addi $t2, $zero, 0x5
 loop:
 slt $t3, $t1, $t2
 beq $t3, $zero, end_main
@@ -19,7 +19,7 @@ sll $t5, $t1, 2
 add $t6, $t5, $t4
 lw $t7, 0($t6) 
 slt $t8, $t9, $t7
-addi $t0, $zero, 0	
+addi $t0, $zero, 0x0	
 beq $t8, $zero, skip_rick
 #rick
 sll $t0, $t7, 1
@@ -27,15 +27,15 @@ sll $t0, $t7, 1
 sub $t0, $t0, $t9
 	
 skip_rick:	
-addi $v0, $zero, 1
+addi $v0, $zero, 0x1
 addu $a0, $zero, $t0
 syscall
-addi $v0, $zero, 4
+addi $v0, $zero, 0x4
 la $a0, units_newline
 syscall	
-addi $t1, $t1, 1
+addi $t1, $t1, 0x1
 j loop
 
 end_main:
-addi $v0, $zero, 10
+addi $v0, $zero, 0xA
 syscall
